@@ -1,0 +1,3 @@
+[submodule "imgurlua"]
+	path = imgurlua
+	url = https://github.com/EntranceJew/imgurlua.git
