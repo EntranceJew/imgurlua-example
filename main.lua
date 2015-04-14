@@ -17,14 +17,14 @@ function love.update(dt)
 end
 
 function love.draw()
-	love.graphics.printf(results, 10, 10, 0, "left")
+	love.graphics.printf(results, 10, 10, 800, "left")
 end
 
 function love.keypressed(const, code)
 	if const == 'd' then
 		debug.debug()
 	elseif const == 'r' then
-		client = ImgurClient:new(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN, REFRESH_TOKEN)
+		client = imgurlua.ImgurClient(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN, REFRESH_TOKEN)
 		
 		items = client:gallery()
 		for _,item in ipairs(items) do
@@ -32,7 +32,7 @@ function love.keypressed(const, code)
 		end
 		xprint("GALLERY DELIVERED")
 	elseif const == 'u' then
-		client = ImgurClient:new(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN, REFRESH_TOKEN)
+		client = imgurlua.ImgurClient(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN, REFRESH_TOKEN)
 		
 		local juk = client:upload_from_path('hamster.png')
 		print_r(juk)
